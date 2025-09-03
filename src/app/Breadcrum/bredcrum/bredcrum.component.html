@@ -1,0 +1,11 @@
+<p>bredcrum works!</p>
+<nav>
+  <ul class="breadcrumb">
+    <li *ngFor="let seg of segments; let i = index">
+      <a (click)="navigateTo(i)" style="cursor: pointer;">
+        {{ seg | titlecase }}
+      </a>
+      <span *ngIf="i < segments.length - 1"> > </span>
+    </li>
+  </ul>
+</nav>

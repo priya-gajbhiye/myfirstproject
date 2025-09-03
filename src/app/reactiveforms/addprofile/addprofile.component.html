@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <form action="" [formGroup] = "myProfileForm"> 
+    <div class="row mb-3 mt-5" >
+        <div class="col-6">
+            <label for="exampleFormControlInput1" class="form-label">FirstName</label>
+            <input type="text" class="form-control" formControlName ='firstName'>
+        </div>
+        <div class="col-6">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="row  mt-5">
+            <div class="col-6">
+
+                <label for="" class="form-label">Contact Number</label>
+                <input type="number" class="form-control" formControlName="contactNumber">
+            </div>
+
+
+            <div class="col-6">
+                <label for="" class="form-label"> Age</label>
+                <input type="number" class="form-control" formControlName="age">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class=" col-6"> <label for="" class="form-label">Gender</label>
+                <input type="text" class="form-control" formControlName="gender">
+            </div>
+
+            <div class="col-6">
+                <label for="" class="form-label"> city</label>
+                <input type="text" class="form-control" formControlName="city">
+            </div>
+        </div>
+    </div>
+<button class="btn btn-success" (click)="addSkill()"> Add Skill </button>
+
+<!-- <div class="col-6 mt-3" formArrayName="skills">
+    <div *ngFor="let skill of skills.controls; let i = index"> 
+    <label for="" class="form-label"> my skills</label>
+    <input  class="form-control" formControlName="i">
+    </div>
+</div> -->
+
+<div style="float: right;">
+    <button class="btn btn-primary" (click)="onSubmit()"> Submit</button>
+</div>
+</form>
+</div>
+
+               
+<app-myprofile [accessMessage]="message"
+               (sendmsg) ='getMessage($event)'
+> </app-myprofile>
+
+<h1 style="color: chocolate;">{{msgReceived}}</h1>
+
+<a [routerLink]="['/myprofile']" fragment="profile">go to fragment </a>
+<a [routerLink]="['/myprofile']" fragment="about">go to about </a>

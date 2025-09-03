@@ -1,0 +1,86 @@
+ 
+
+
+<div class="container-fluid h-full mt-5">
+  <div style="display: flex;justify-content: space-between;"> 
+<div class="listProfile">  
+  List of Profiles 
+</div> 
+<button class="btn btn-primary" (click)="addProfile()">
+  Add My Profile
+</button>
+
+  </div>
+
+
+<div class="mt-5"> 
+<table class="table  table-striped-columns text-center" >
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact Number</th>
+       <th scope="col">City</th>
+        <th scope="col">Gender</th>
+           <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let profile of PaginatedData">
+    <tr>
+      <td>{{profile.name}}</td>
+      <td>{{profile.age}}</td>
+      <td>{{profile.email}}</td>
+       <td>{{profile.contactNumber}}</td>
+      <td>{{profile.city}}</td>
+      <td>{{profile.gender }}</td>
+      <td style="width: 2%;" > 
+     <img style="width: 30%; cursor: pointer;" src="assets/edit-pencil.svg" alt="" (click)="editProfile(profile.id, profile.name)">
+
+     </td>
+    </tr>
+   
+  </tbody>
+
+  
+</table>
+
+
+
+
+<div>
+    
+  <app-pagination [totalItems]="myprofiledata.length"
+             [itemsPerPage]="itemsPerPage" 
+               [currentPage] ="currentPage"
+               (onClick)="pageClick($event)">
+               
+            </app-pagination>
+
+</div> 
+
+
+
+ <div class="container-fluid h-full mt-5" style="display:flex;justify-content: space-between;">
+
+
+<div class="card" style="width: 18rem; " *ngFor="let product of productData">
+  <img src="assets/images.jpg" class="card-img-top" alt="...">
+  <div class="card-body" >
+    <h5 class="card-title">{{product.productName}}</h5>
+    <span>{{product.price}}</span>
+    <span>{{product.price}}</span>
+    <span>{{product.quantity}}</span>
+    <div style="display: flex;justify-content: space-between;"> 
+     <button class="btn btn-primary" (click)="onAddtoCart(product)">  Add to cart </button>
+     <button *ngIf="product.id ===isGoto" class="btn btn-success"> Go to cart</button>
+     </div>
+  </div>
+</div>
+ </div> 
+
+ <h1 style="color: red;">{{accessMessage}} </h1>
+
+ <button class="btn - btn-primary" (click)="sendMessgae()"> Send Message</button>
+
+ 
